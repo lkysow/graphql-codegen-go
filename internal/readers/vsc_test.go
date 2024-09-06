@@ -1,8 +1,9 @@
 package readers
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestNewGitReader(t *testing.T) {
@@ -13,10 +14,10 @@ func TestNewGitReader(t *testing.T) {
 }
 
 func TestNewGitReader_SSHPath(t *testing.T) {
-	s := NewGitReader("git@github.com:jkrajniak/sc-priv.git/schema.sql")
+	s := NewGitReader("git@github.com:lkysow/sc-priv.git/schema.sql")
 	assert.Equal(t, "master", s.branchName)
 	assert.Equal(t, "/schema.sql", s.path)
-	assert.Equal(t, "git@github.com:jkrajniak/sc-priv.git", s.repoURL)
+	assert.Equal(t, "git@github.com:lkysow/sc-priv.git", s.repoURL)
 }
 
 func TestNewGitReader_BranchName(t *testing.T) {

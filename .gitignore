@@ -15,4 +15,4 @@ graphql-codegen-go
 
 .idea
 
-examples/**/models.go
+_examples/**/models.go

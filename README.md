@@ -1,4 +1,4 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/jkrajniak/graphql-codegen-go)](https://goreportcard.com/report/github.com/jkrajniak/graphql-codegen-go)
+[![Go Report Card](https://goreportcard.com/badge/github.com/lkysow/graphql-codegen-go)](https://goreportcard.com/report/github.com/lkysow/graphql-codegen-go)
 
 # graphql-codegen-go
 Generate Go structs from your GraphQL schema.
@@ -9,7 +9,7 @@ can be located either locally or can be fetched from GIT repository.
 Install it using `go get`:
 
 ```bash
-$ go get -u github.com/jkrajniak/graphql-codegen-go
+$ go get -u github.com/lkysow/graphql-codegen-go
 ```
 ## Quick start
 
@@ -116,7 +116,7 @@ generates: A key-value map, where key is the name of the output Go file
 schema:
     - ./schema.graphql
     - ./types.graphql
-    - https://github.com/jkrajniak/sc.git/schema1.gql
+    - https://github.com/lkysow/sc.git/schema1.gql
 generates:
     internal/models.go:
       config:

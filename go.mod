@@ -1,4 +1,4 @@
-module github.com/jkrajniak/graphql-codegen-go
+module github.com/lkysow/graphql-codegen-go
 
 go 1.13
 

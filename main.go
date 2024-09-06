@@ -2,10 +2,12 @@ package main
 
 import (
 	"flag"
-	"github.com/jkrajniak/graphql-codegen-go/internal"
-	"github.com/pkg/errors"
 	"os"
 	"strings"
+
+	"github.com/pkg/errors"
+
+	"github.com/lkysow/graphql-codegen-go/internal"
 )
 
 func main() {

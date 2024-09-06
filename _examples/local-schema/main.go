@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/jkrajniak/graphql-codegen-go/examples/local-schema/internal/appsync"
+
+	"github.com/lkysow/graphql-codegen-go/_examples/local-schema/internal/appsync"
 )
 
 func main() {
