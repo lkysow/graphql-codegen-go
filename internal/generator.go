@@ -2,8 +2,9 @@ package internal
 
 import (
 	"fmt"
-	"github.com/vektah/gqlparser/v2/ast"
 	"strings"
+
+	"github.com/vektah/gqlparser/v2/ast"
 )
 
 const (
@@ -17,8 +18,8 @@ package %s
 %s
 }`
 
-	FieldTPL        = "  %s %s `json:\"%s\"`"
-	ListFieldTPL    = "  %s []%s `json:\"%s\"`"
+	FieldTPL        = "  %s %s `json:\"%s,omitempty\"`"
+	ListFieldTPL    = "  %s []%s `json:\"%s,omitempty\"`"
 	EnumTypeDefTPL  = "type %s %s"
 	EnumDefConstTPL = "const %s%s %s = \"%s\""
 )
@@ -145,7 +146,6 @@ func resolveType(typeName string, enumMap map[string]enum, notNull bool) string 
 	return typeName
 }
 
-
 func resolveEntityDependencies(doc *ast.SchemaDocument, reqEntities []string, enumMap map[string]enum) []string {
 	dependsOn := map[string][]string{}
 	for _, i := range doc.Definitions {
@@ -200,4 +200,3 @@ func buildEnumMap(doc *ast.SchemaDocument) map[string]enum {
 	}
 	return enumMap
 }
-
