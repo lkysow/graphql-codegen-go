@@ -58,11 +58,11 @@ func (g *GoGenerator) Generate(doc *ast.SchemaDocument) error {
 	declaredKeywords := keywordMap{}
 
 	//remap enums
-	enumMap := buildEnumMap(doc)
+	enumMap, enumList := buildEnumMap(doc)
 	reqEntities := resolveEntityDependencies(doc, g.entities, enumMap)
 
 	// Write enum const
-	for _, e := range enumMap {
+	for _, e := range enumList {
 		if len(reqEntities) > 0 && !inArray(e.TypeName, reqEntities) {
 			continue
 		}
@@ -189,8 +189,9 @@ type enum struct {
 	Values   []string
 }
 
-func buildEnumMap(doc *ast.SchemaDocument) map[string]enum {
+func buildEnumMap(doc *ast.SchemaDocument) (map[string]enum, []enum) {
 	enumMap := map[string]enum{}
+	var enumList []enum
 	for _, i := range doc.Definitions {
 		if i.Kind == ast.Enum {
 			enumTypeName := fmt.Sprintf("Enum%s", i.Name)
@@ -198,8 +199,10 @@ func buildEnumMap(doc *ast.SchemaDocument) map[string]enum {
 			for _, e := range i.EnumValues {
 				vals = append(vals, e.Name)
 			}
-			enumMap[i.Name] = enum{TypeName: enumTypeName, Values: vals}
+			entity := enum{TypeName: enumTypeName, Values: vals}
+			enumMap[i.Name] = entity
+			enumList = append(enumList, entity)
 		}
 	}
-	return enumMap
+	return enumMap, enumList
 }
